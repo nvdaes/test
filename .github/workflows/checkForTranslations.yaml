@@ -21,7 +21,7 @@ jobs:
         ref: stable
     - name: Disable workflow on failure
       if: failure()
-      run gh workflow disable checkForTranslations.yaml      
+      run: gh workflow disable checkForTranslations.yaml      
     - name: Checkout main
       if: failure()
       uses: actions/checkout@v2
