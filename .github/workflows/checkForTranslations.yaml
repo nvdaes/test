@@ -1,6 +1,6 @@
 # https://crontab.guru/crontab.5.html
 
-name: Check for l10n updates
+name: checkForTranslations.yaml
 
 on:
 
