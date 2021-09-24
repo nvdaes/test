@@ -10,13 +10,17 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '1 * * * *' # Once every hour (minute 1)
 
-
 jobs:
   update-translations:
     runs-on: windows-latest
-    if: ${{ github.event.repository.name }} != clipContentsDesigner
     steps:
+    - name: checkout remote
+      uses: actions/checkout@v2
+      with:
+        repository: ${{nvdaaddons/github.event.repository.name }}
+        ref: stable
     - name: Checkout main
+      if: failure()
       uses: actions/checkout@v2
 
     - name: Push changes
