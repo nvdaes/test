@@ -17,7 +17,7 @@ jobs:
     - name: checkout remote
       uses: actions/checkout@v2
       with:
-        repository: ${{nvdaaddons/github.event.repository.name }}
+        repository: nvdaaddons/${{ github.event.repository.name }}
         ref: stable
     - name: Checkout main
       if: failure()
