@@ -22,7 +22,7 @@ jobs:
     - name: Disable workflow on failure
       if: failure()
       env:
-        token: ${{ github.token }}
+        token: ${{ github.GITHUB_TOKEN }}
       run: gh workflow disable checkForTranslations.yaml      
     - name: Checkout main
       if: failure()
