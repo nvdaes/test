@@ -14,20 +14,19 @@ jobs:
   update-translations:
     runs-on: windows-latest
     steps:
+    - name: Checkout main
+      uses: actions/checkout@v2
     - name: checkout remote
       uses: actions/checkout@v2
       with:
         repository: nvdaaddons/${{ github.event.repository.name }}
         ref: stable
+        path: test
     - name: Disable workflow on failure
       if: failure()
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       run: gh workflow disable ${{ github.workflow }}
-    - name: Checkout main
-      if: failure()
-      uses: actions/checkout@v2
-
     - name: Push changes
       run: |
         git config --global user.name github-actions
