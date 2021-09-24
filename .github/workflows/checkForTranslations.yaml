@@ -19,6 +19,9 @@ jobs:
       with:
         repository: nvdaaddons/${{ github.event.repository.name }}
         ref: stable
+    - name: Disable workflow on failure
+      if: failure()
+      run gh workflow disable checkForTranslations.yaml      
     - name: Checkout main
       if: failure()
       uses: actions/checkout@v2
