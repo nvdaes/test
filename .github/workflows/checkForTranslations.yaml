@@ -23,7 +23,7 @@ jobs:
       if: failure()
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: gh workflow disable ${{ github.run_id }}
+      run: gh workflow disable ${{ github.workflow }}
     - name: Checkout main
       if: failure()
       uses: actions/checkout@v2
